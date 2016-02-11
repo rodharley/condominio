@@ -24,11 +24,12 @@ $zurc->controllers();
 $zurc->end();
 
 }catch(Exception $e){
-    $tpl = new Template("view/templates/blank_bootstrap_lteadmin.html");
+    echo $e->getMessage();
+   /* $tpl = new Template("view/templates/blank_bootstrap_lteadmin.html");
     $tpl->addFile("CONTENT", "view/padrao/erro.html");
     $tpl->error_code = $e->getCode();
     $tpl->error_message = $e->getMessage();
     $tpl->show();
-
+*/
 }
 ?>
