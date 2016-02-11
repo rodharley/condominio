@@ -25,6 +25,7 @@ $zurc->end();
 
 }catch(Exception $e){
     echo $e->getMessage();
+    echo "br/>".$_SERVER['DOCUMENT_ROOT'];
    /* $tpl = new Template("view/templates/blank_bootstrap_lteadmin.html");
     $tpl->addFile("CONTENT", "view/padrao/erro.html");
     $tpl->error_code = $e->getCode();
