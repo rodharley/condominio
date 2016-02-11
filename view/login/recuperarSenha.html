@@ -1,0 +1,47 @@
+<p class="login-box-msg">Preencha seu email para recuperar sua senha</p>        
+        <form action="index-do" method="post" id="frmLogin">
+            <input type="hidden" value="recupera" name="action" />
+          <div class="form-group has-feedback">
+            <input type="email" class="form-control required email" placeholder="Email" name="email">
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          </div>
+          <div class="row">
+            <div class="col-xs-8">              
+            </div><!-- /.col -->
+            <div class="col-xs-4">
+              <button type="submit" class="btn btn-primary btn-block btn-flat">Recuperar</button>
+            </div><!-- /.col -->
+          </div>
+        </form>
+        <a href="index-login">Voltar</a><br>
+        <a href="index-registro" class="text-center">Registrar-se como novo usuário</a>
+        <script>
+      $(function () {
+        $("#frmLogin").validate({
+            errorClass : "help-inline",
+            errorElement : "div",
+            highlight : function(element, errorClass, validClass) {
+                $(element).parents('.form-group').addClass('has-error');
+            },
+            unhighlight : function(element, errorClass, validClass) {
+                $(element).parents('.form-group').removeClass('has-error');
+                $(element).parents('.form-group').addClass('has-success');
+            },
+            rules : {
+        
+            email: {
+                required: true,
+                remote: {
+                            url: "comum/ajax/consultaEmail?tipo=1&email="+$("#email").val(),
+                            type: "get",
+                            }
+                }
+        },
+        messages: {
+                    email: {
+                    remote: "Desculpe mas o email não está cadastrado."
+                    }
+                }
+        });
+      });
+    </script>

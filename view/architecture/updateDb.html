@@ -1,0 +1,35 @@
+<div class="box box-primary">
+    <div class="box-body">
+<form class="form" action="updateDb.php" method="post">
+    
+    <table class="table table-bordered">
+        <tr>
+            <th class="col-md-1"><input type="checkbox" id="checkall" name="checkall" value="1" class="select" /> Selecione</th>
+            <th>Tabela</th>
+        </tr>
+        <!-- BEGIN block_tabela -->
+        <tr>
+            <td><input type="checkbox" name="tabela[]" value="{nome_tabela}" class="select" /></td>
+            <td>{nome_tabela}</td>
+        </tr>
+         <!-- END block_tabela -->
+    </table>
+    <input type="submit" class="btn btn-success" value="Executar"/>
+</form>
+</div>
+</div>
+<script>
+   $(document).ready(function(){
+       $("#checkall").click(function(){
+           if($(this).prop("checked")){
+                $("input:checkbox").each(function(){
+                    $(this).prop("checked",true);
+                }); 
+           }else{
+               $("input:checkbox").each(function(){
+                    $(this).prop("checked",false);
+                });
+           }
+       });
+   }); 
+</script>

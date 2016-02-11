@@ -1,0 +1,141 @@
+body {
+	font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+/* CSS DO SISTEMA */
+.cd-header {
+	background-color: #7DA4BC; 
+	margin-top:2em;
+	height: 69px;
+	
+}
+.cd-logo-header {
+	padding-top:0;
+}
+.cd-info-header {
+	padding: 10px;
+	color:#ffffff;
+	font-size: 1.3em;
+}
+.cd-content {
+	margin-top: 40px;
+}
+
+.cd-docs-footer {
+    background-color: #686868;
+    color: #99979c;
+    margin-top: 100px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    text-align: left;
+}
+/*panels */
+.panel-padrao {
+    border-color: #7DA4BC;
+    border-width:2px;
+    border-radius: 6px;
+    
+    
+ 	
+}
+.panel-padrao-no-border {
+    border:none;
+     border-radius: 10px;
+ 	
+}
+.panel-padrao > .panel-heading, .panel-padrao-no-border > .panel-heading {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #7DA4BC;
+    font-size: 2em;
+    font-weight: bold;
+	line-height: 40px;
+     
+}
+
+/*menu secundario
+ * 
+ */
+.fa-circle {
+	color: #7DA4BC;
+}
+#cd-menu-sec li {
+	height: 3em;
+	color: #7DA4BC;
+	border-bottom: 1px solid #7DA4BC;
+	line-height: 3em;
+	
+}
+
+#cd-menu-sec li a {
+	color:#000000;
+	font-size: 1.2em;
+	
+}
+/*ICONES DO SISTEMA */
+.icone {
+    display: inline-block;
+    font-feature-settings: normal;
+    font-kerning: auto;
+    font-language-override: normal;
+    font-size: inherit;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-synthesis: weight style;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    text-rendering: auto;
+    width: 40px;
+    height: 40px;
+    float: left;
+}
+.icone-anote {
+	background: url('../img/icon-anote.png');
+}
+.icone-colabore {
+	background: url('../img/icon-colabore.png');
+}
+.icone-participe {
+	background: url('../img/icon-participe.png');
+}
+.icone-servicos {
+	background: url('../img/icon-servicos.png');
+}
+.icone-seguranca{
+	background: url('../img/icon-seguranca.png');
+}
+
+/* MODIFICACOES NO BOOTSTRAP */
+.navbar-toggle .icon-bar {
+    border-radius: 1px;
+    display: block;
+    height: 2px;
+    width: 22px;
+    background-color: #ffffff;
+}
+.navbar-nav > li {
+    float: left;
+    height: 69px;
+}
+.navbar-nav > li > a {
+    padding-bottom: 35px;
+    padding-top: 25px;
+    padding-left:25px;
+    padding-right:25px;    
+    color:#FFFFFF;
+    border-right: 2px dashed #ffffff;
+}
+.navbar-nav > li > form {
+    padding-bottom: 35px;
+    padding-top: 25px;
+    padding-left:25px;
+    padding-right:25px;    
+    color:#FFFFFF;
+    border-right: 2px dashed #ffffff;
+}
+.navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
+    background-color: #5588A6;
+}
+

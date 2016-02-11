@@ -1,0 +1,53 @@
+<p class="login-box-msg">Conecte-se para iniciar sua sessão</p>        
+        <form action="index-do" method="post" id="frmLogin">
+            <input type="hidden" value="login" name="action" />
+          <div class="form-group has-feedback">
+            <input type="email" class="form-control required email" placeholder="Email" name="email">
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input type="password" class="form-control required" placeholder="Senha" name="senha">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+          <div class="row">
+            <div class="col-xs-8">
+              <div class="checkbox icheck">
+                <label>
+                  <input type="checkbox"> Lembre-me
+                </label>
+              </div>
+            </div><!-- /.col -->
+            <div class="col-xs-4">
+              <button type="submit" class="btn btn-primary btn-block btn-flat">Conectar</button>
+            </div><!-- /.col -->
+          </div>
+        </form>
+        <a href="index-recuperarSenha">Eu esqueci minha senha</a><br>
+        <a href="index-registro" class="text-center">Registrar-se como novo usuário</a>
+        <script>
+      $(function () {
+        $('input').iCheck({
+          checkboxClass: 'icheckbox_square-blue',
+          radioClass: 'iradio_square-blue',
+          increaseArea: '20%' // optional
+        });
+        $("#frmLogin").validate({
+            errorClass : "help-inline",
+            errorElement : "div",
+            highlight : function(element, errorClass, validClass) {
+                $(element).parents('.form-group').addClass('has-error');
+            },
+            unhighlight : function(element, errorClass, validClass) {
+                $(element).parents('.form-group').removeClass('has-error');
+                $(element).parents('.form-group').addClass('has-success');
+            },
+            rules : {
+        senha: {
+        required: true,
+        minlength: 6
+        }
+        
+        }        
+        });
+      });
+    </script>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<bd name="patrimonio">
+	<class name="Categoria" tb-name="inv_categoria" tb-id="id" auto_increment="1" charset="utf8">
+		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
+		<atrib tb-name="descricao" type="varchar" length="100" nullable="NOT NULL" role="str">descricao</atrib>		
+		<atrib tb-name="idCategoriaPai" length="20" nullable="NOT NULL" type="bigint" role="fk" class-relation="Categoria" tb-relation="inv_categoria" col-relation="id"  on-update="RESTRICT" on-delete="RESTRICT">categoriaPai</atrib>				
+	</class>
+	
+	<class name="Bem" tb-name="inv_bem" tb-id="id" auto_increment="1" charset="utf8">
+		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
+		<atrib tb-name="localizacao" type="varchar" length="100" nullable="NOT NULL" role="str">localizacao</atrib>
+		<atrib tb-name="endereco" type="varchar" length="100" nullable="NOT NULL" role="str">endereco</atrib>	
+		<atrib tb-name="idUnidade" length="20" nullable="NOT NULL" type="bigint" role="fk" class-relation="Unidade" tb-relation="inv_unidade" col-relation="id"  on-update="RESTRICT" on-delete="RESTRICT">unidade</atrib>				
+		<atrib tb-name="idCategoria" length="20" nullable="NOT NULL" type="bigint" role="fk" class-relation="Categoria" tb-relation="inv_categoria" col-relation="id"  on-update="RESTRICT" on-delete="RESTRICT">categoria</atrib>
+		<atrib tb-name="idSituacaoBem" length="20" nullable="NOT NULL" type="bigint" role="fk" class-relation="SituacaoBem" tb-relation="inv_situacao_bem" col-relation="id"  on-update="RESTRICT" on-delete="RESTRICT">situacao</atrib>
+	</class>
+	
+	<class name="Cidade" tb-name="inv_cidade" tb-id="id" auto_increment="1" charset="utf8">
+		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
+		<atrib tb-name="nome" type="varchar" length="100" nullable="NOT NULL" role="str">nome</atrib>		
+		<atrib tb-name="idUf" length="4" nullable="NOT NULL" type="int" role="fk" class-relation="Uf" tb-relation="inv_uf" col-relation="id"  on-update="RESTRICT" on-delete="RESTRICT">uf</atrib>				
+	</class>
+	<class name="Empresa" tb-name="inv_empresa" tb-id="id" auto_increment="1" charset="utf8">
+		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
+		<atrib tb-name="nomeFantasia" type="varchar" length="50" nullable="NOT NULL" role="str">nomeFantasia</atrib>
+		<atrib tb-name="razaoSocial" type="varchar" length="50" nullable="NULL" role="str">razaoSocial</atrib>
+		<atrib tb-name="cnpj" type="varchar" length="14" nullable="NOT NULL" role="str">cnpj</atrib>		
+	</class>
+	<class name="Log" tb-name="inv_log" lazy="true" tb-id="id" auto_increment="1" charset="utf8">
+		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
+		<atrib tb-name="ip" type="varchar" length="20" nullable="NOT NULL" role="str">ip</atrib>
+		<atrib tb-name="url" type="varchar" length="255" nullable="NOT NULL" role="str">url</atrib>
+		<atrib tb-name="navegador" type="varchar" length="50" nullable="NOT NULL" role="str">navegador</atrib>
+		<atrib tb-name="texto" type="text" length="" nullable="NOT NULL" role="txt">texto</atrib>
+		<atrib tb-name="data" type="date" length="" nullable="NOT NULL" role="date">data</atrib>
+		<atrib tb-name="idUsuario" length="20" nullable="NULL" type="bigint" role="fk" class-relation="Usuario" tb-relation="inv_usuario" col-relation="id"  on-update="CASCADE" on-delete="CASCADE">usuario</atrib>		
+	</class>	
+	<class name="Menu" tb-name="inv_menu" tb-id="id" auto_increment="1" charset="utf8">
+		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
+		<atrib tb-name="nome" type="varchar" length="50" nullable="NOT NULL" role="str">nome</atrib>
+		<atrib tb-name="url" type="varchar" length="50" nullable="NULL" role="str">url</atrib>
+		<atrib tb-name="ordem" type="int" length="4" nullable="NOT NULL" role="number">ordem</atrib>
+		<atrib tb-name="icone"  type="varchar" length="150" nullable="NULL" role="str">icone</atrib>
+		<atrib tb-name="idMenuPai" length="20" nullable="NULL" type="bigint"  role="fk" class-relation="Menu" tb-relation="inv_menu" col-relation="id" on-update="CASCADE" on-delete="CASCADE">menuPai</atrib>
+		<atrib tb-name="" role="set" class-relation="Menu" class-order="id" class-fk="menuPai">subMenus</atrib>
+	</class>
+	<class name="Perfil" tb-name="inv_perfil" tb-id="id" auto_increment="1" charset="utf8">
+		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>	
+		<atrib tb-name="nome" type="varchar" length="50" nullable="NOT NULL" role="str">descricao</atrib>	
+	</class>
+	<class name="Permissao" tb-name="inv_permissao" tb-id="id" auto_increment="1" charset="utf8">
+		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
+		<atrib tb-name="idMenu" length="20" nullable="NOT NULL" type="bigint"  role="fk" class-relation="Menu" tb-relation="inv_menu" col-relation="id" on-update="CASCADE" on-delete="CASCADE">menu</atrib>
+		<atrib tb-name="idPerfil" length="20" nullable="NOT NULL" type="bigint" role="fk" class-relation="Perfil" tb-relation="inv_perfil" col-relation="id"  on-update="CASCADE" on-delete="CASCADE">perfil</atrib>		
+	</class>
+	<class name="SituacaoBem" tb-name="inv_situacao_bem" tb-id="id" auto_increment="1" charset="utf8">
+		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
+		<atrib tb-name="descricao" type="varchar" length="100" nullable="NOT NULL" role="str">descricao</atrib>						
+	</class>
+	<class name="Uf" tb-name="inv_uf" tb-id="id" auto_increment="1" charset="utf8">
+		<atrib tb-name="id" type="int" length="4" nullable="NOT NULL" role="id">id</atrib>	
+		<atrib tb-name="nome" type="varchar" length="20" nullable="NOT NULL" role="str">nome</atrib>
+		<atrib tb-name="uf" type="varchar" length="2" nullable="NOT NULL" role="str">uf</atrib>	
+	</class>
+	<class name="Unidade" tb-name="inv_unidade" tb-id="id" auto_increment="1" charset="utf8">
+		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
+		<atrib tb-name="nome" type="varchar" length="50" nullable="NOT NULL" role="str">nome</atrib>
+		<atrib tb-name="endereco" type="varchar" length="50" nullable="NOT NULL" role="str">endereco</atrib>
+		<atrib tb-name="idEmpresa" length="20" nullable="NOT NULL" type="bigint"  role="fk" class-relation="Empresa" tb-relation="inv_empresa" col-relation="id" on-update="CASCADE" on-delete="CASCADE">empresa</atrib>		
+	</class>	
+	<class name="Usuario" tb-name="inv_usuario" tb-id="id" auto_increment="1" charset="utf8">
+		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>	
+		<atrib tb-name="senha" type="varchar" length="40" nullable="NOT NULL" role="str">senha</atrib>	
+		<atrib tb-name="email" type="varchar" length="50" nullable="NOT NULL" role="str">email</atrib>	
+		<atrib tb-name="nome" type="varchar" length="50" nullable="NOT NULL" role="str">nome</atrib>
+		<atrib tb-name="foto" type="varchar" length="200" nullable="NOT NULL" role="str">foto</atrib>
+		<atrib tb-name="dataCadastro" type="date" length="" nullable="NULL" role="data" default="NULL">dataCadastro</atrib>		
+		<atrib tb-name="ativo" type="tinyint" length="1" nullable="NOT NULL" role="number" default="1">ativo</atrib>
+		<atrib tb-name="idPerfil" length="20" nullable="NULL" type="bigint"  role="fk" class-relation="Perfil" tb-relation="inv_perfil" col-relation="id" on-update="SET NULL" on-delete="SET NULL">perfil</atrib>
+		<atrib tb-name="idEmpresa" length="20" nullable="NULL" type="bigint"  role="fk" class-relation="Empresa" tb-relation="inv_empresa" col-relation="id" on-update="SET NULL" on-delete="SET NULL">empresa</atrib>		
+	</class>
+		
+</bd>

@@ -1,0 +1,1 @@
+<?php class Empresa extends Dao {    const TABELA = 'inv_empresa'; var $nomeFantasia; var $razaoSocial; var $cnpj;}

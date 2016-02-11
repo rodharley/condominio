@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>invent | Bem-vindo ao invent - Sistema de inventário eletrônico</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="plugins/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/font-awesome-4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="plugins/ionicons-2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+   <link rel="stylesheet" href="plugins/AdminLTE-2.3.0/dist/css/AdminLTE.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+     <!-- jQuery 2.1.4 -->
+    <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="plugins/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="plugins/iCheck/icheck.min.js"></script>
+    <script src="plugins/jqValidation/jquery.validate.min.js"></script>
+    <script src="plugins/jqValidation/localization/messages_pt_BR.min.js"></script>
+    <script src="plugins/input-mask/jquery.inputmask.js"></script>
+    <script src="plugins/blockUi/jquery.blockUI.js" type="text/javascript"></script>
+  </head>
+  <body class="hold-transition login-page">
+    <div class="login-box">
+      <div class="login-logo">
+        <a href="#"><img src="img/logo_128.png" class="responsive" width="64"/></a>
+      </div><!-- /.login-logo -->
+      <div class="login-box-body">
+        <p>{MENSAGEM}</p>
+        {CONTENT}
+      </div><!-- /.login-box-body -->
+    </div><!-- /.login-box -->
+    
+   
+  </body>
+  <Script>
+    $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
+    $(document).ready(function() {
+        
+        $("[data-mask]").inputmask();
+       
+         //$('#menuPrincipal').simpleScrollFollow();
+        
+        $(".btVoltar").click(function() {
+            history.back();
+        });
+   
+
+        
+        
+        if ($("#frmEdit").length) {
+            $("#frmEdit").validate({
+                
+                errorClass : "help-inline",
+                errorElement : "div",
+                highlight : function(element, errorClass, validClass) {
+                    $(element).parents('.form-group').addClass('has-error');
+                    $(element).parents('.form-group').children("label").children("i").addClass("fa-times-circle-o");
+                },
+                unhighlight : function(element, errorClass, validClass) {
+                    $(element).parents('.form-group').removeClass('has-error');
+                    $(element).parents('.form-group').addClass('has-success');
+                    $(element).parents('.form-group').children("label").children("i").removeClass("fa-times-circle-o");
+                    $(element).parents('.form-group').children("label").children("i").addClass("fa-check");
+                }
+            });
+        }
+    });
+    
+</Script>
+</html>

@@ -1,0 +1,1 @@
+<?php class Categoria extends Dao {    const TABELA = 'inv_categoria'; var $descricao; var $categoriaPai = NULL;}

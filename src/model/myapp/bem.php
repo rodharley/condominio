@@ -1,0 +1,1 @@
+<?php class Bem extends Dao {    const TABELA = 'inv_bem'; var $localizacao; var $endereco; var $unidade = NULL; var $categoria = NULL; var $situacao = NULL;}

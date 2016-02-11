@@ -1,0 +1,1 @@
+<?php class SituacaoBem extends Dao {    const TABELA = 'inv_situacao_bem'; var $descricao;}

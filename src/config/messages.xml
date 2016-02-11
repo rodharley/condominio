@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mensagens>
+<mensagem id="1" type="danger">Usuário não encontrado.</mensagem>
+<mensagem id="2" type="danger">Senha inválida.</mensagem>
+<mensagem id="3" type="danger">Email já cadastrado no sistema.</mensagem>
+<mensagem id="4" type="success">Usuário cadastrado com sucesso.</mensagem>
+<mensagem id="5" type="success">Usuário alterado com sucesso.</mensagem>
+<mensagem id="6" type="warning">Usuário não autenticado.</mensagem>
+<mensagem id="7" type="danger">Usuário não tem permissão para acessar a funcionalidade.</mensagem>
+<mensagem id="8" type="success">Usuário excluído com sucesso.</mensagem>
+<mensagem id="9" type="success">Redefinição de senha realizada com sucesso.</mensagem>
+<mensagem id="10" type="danger">Usuário não está ativo no sistema</mensagem>
+<mensagem id="11" type="danger">Usuário já está ativo no sistema</mensagem>
+<mensagem id="12" type="success">Usuário habilitado no sistema com sucesso!</mensagem>
+<mensagem id="13" type="success">Senha alterada com sucesso!</mensagem>
+<mensagem id="14" type="success">Usuário Cadastrado com sucesso.Verifique seu email para ativar sua conta.</mensagem>
+<mensagem id="21" type="success">Perfil Alterado com sucesso.</mensagem>
+<mensagem id="22" type="success">Perfil Incluído com sucesso.</mensagem>
+<mensagem id="23" type="danger">Perfil não Autorizado.</mensagem>
+<mensagem id="31" type="warning">Estamos com problemas para processar essa operação no momento, por favor tente novamente mais tarde.</mensagem>
+<mensagem id="32" type="danger">Não é possível excluir esse registro pois o mesmo contém dados no sistema que não podem ser excluídos.</mensagem>
+<mensagem id="33" type="warning">Para acessar a funcionalidade você deve autenticar ou criar um novo usuário.</mensagem>
+<mensagem id="34" type="warning">Sua sessão expirou. Realize o login novamente.</mensagem>
+<mensagem id="35" type="success">Base de dados atualizada.</mensagem>
+</mensagens>
+
+
