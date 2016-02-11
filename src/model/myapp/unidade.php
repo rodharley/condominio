@@ -1,1 +1,0 @@
-<?php class Unidade extends Dao {    const TABELA = 'inv_unidade'; var $nome; var $endereco; var $empresa = NULL;}

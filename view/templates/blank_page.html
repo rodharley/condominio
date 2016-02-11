@@ -33,7 +33,7 @@
                     <button aria-expanded="false" aria-controls="bs-navbar" data-target="#bs-navbar" data-toggle="collapse" type="button" class="navbar-toggle collapsed">
                         <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand cd-logo-header" href="../"><img src="img/logo_header.png"/></a>
+                    <a class="navbar-brand cd-logo-header" href="index.php"><img src="img/logo_header.png"/></a>
                 </div>
 
                 <nav class="collapse navbar-collapse" id="cd-navbar">
@@ -42,12 +42,12 @@
                             <a href="home-home"><i class="fa fa-home"> </i> Home</a>
                         </li>
                         <li>
-                            <a href="../css/"> <i class="fa fa-envelope-o"> </i> Fale Conosco </a>
+                            <a href="home-faleconosco"> <i class="fa fa-envelope-o"> </i> Fale Conosco </a>
                         </li>
                         <li>
-                            <form class="form-inline">
+                            <form class="form-inline" method="get" action="index.php">
                                 <i class="fa fa-search"> </i>
-                                <input type="text" class="form-control input-sm"/>
+                                <input type="text" class="form-control input-sm" name="a"/>
                             </form>
                         </li>
                     </ul>

@@ -120,7 +120,7 @@ body {
     height: 69px;
 }
 .navbar-nav > li > a {
-    padding-bottom: 35px;
+    padding-bottom: 24px;
     padding-top: 25px;
     padding-left:25px;
     padding-right:25px;    
@@ -128,7 +128,7 @@ body {
     border-right: 2px dashed #ffffff;
 }
 .navbar-nav > li > form {
-    padding-bottom: 35px;
+    padding-bottom: 24px;
     padding-top: 25px;
     padding-left:25px;
     padding-right:25px;    
@@ -137,5 +137,6 @@ body {
 }
 .navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
     background-color: #5588A6;
+    border-bottom: 4px solid #000000;
 }
 

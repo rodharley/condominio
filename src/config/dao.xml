@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<bd name="patrimonio">
-	<class name="Categoria" tb-name="inv_categoria" tb-id="id" auto_increment="1" charset="utf8">
-		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
-		<atrib tb-name="descricao" type="varchar" length="100" nullable="NOT NULL" role="str">descricao</atrib>		
-		<atrib tb-name="idCategoriaPai" length="20" nullable="NOT NULL" type="bigint" role="fk" class-relation="Categoria" tb-relation="inv_categoria" col-relation="id"  on-update="RESTRICT" on-delete="RESTRICT">categoriaPai</atrib>				
-	</class>
-	
-	<class name="Bem" tb-name="inv_bem" tb-id="id" auto_increment="1" charset="utf8">
-		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
-		<atrib tb-name="localizacao" type="varchar" length="100" nullable="NOT NULL" role="str">localizacao</atrib>
-		<atrib tb-name="endereco" type="varchar" length="100" nullable="NOT NULL" role="str">endereco</atrib>	
-		<atrib tb-name="idUnidade" length="20" nullable="NOT NULL" type="bigint" role="fk" class-relation="Unidade" tb-relation="inv_unidade" col-relation="id"  on-update="RESTRICT" on-delete="RESTRICT">unidade</atrib>				
-		<atrib tb-name="idCategoria" length="20" nullable="NOT NULL" type="bigint" role="fk" class-relation="Categoria" tb-relation="inv_categoria" col-relation="id"  on-update="RESTRICT" on-delete="RESTRICT">categoria</atrib>
-		<atrib tb-name="idSituacaoBem" length="20" nullable="NOT NULL" type="bigint" role="fk" class-relation="SituacaoBem" tb-relation="inv_situacao_bem" col-relation="id"  on-update="RESTRICT" on-delete="RESTRICT">situacao</atrib>
-	</class>
-	
+<bd name="condominio">
 	<class name="Cidade" tb-name="inv_cidade" tb-id="id" auto_increment="1" charset="utf8">
 		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
 		<atrib tb-name="nome" type="varchar" length="100" nullable="NOT NULL" role="str">nome</atrib>		
@@ -52,22 +37,12 @@
 		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
 		<atrib tb-name="idMenu" length="20" nullable="NOT NULL" type="bigint"  role="fk" class-relation="Menu" tb-relation="inv_menu" col-relation="id" on-update="CASCADE" on-delete="CASCADE">menu</atrib>
 		<atrib tb-name="idPerfil" length="20" nullable="NOT NULL" type="bigint" role="fk" class-relation="Perfil" tb-relation="inv_perfil" col-relation="id"  on-update="CASCADE" on-delete="CASCADE">perfil</atrib>		
-	</class>
-	<class name="SituacaoBem" tb-name="inv_situacao_bem" tb-id="id" auto_increment="1" charset="utf8">
-		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
-		<atrib tb-name="descricao" type="varchar" length="100" nullable="NOT NULL" role="str">descricao</atrib>						
-	</class>
+	</class>	
 	<class name="Uf" tb-name="inv_uf" tb-id="id" auto_increment="1" charset="utf8">
 		<atrib tb-name="id" type="int" length="4" nullable="NOT NULL" role="id">id</atrib>	
 		<atrib tb-name="nome" type="varchar" length="20" nullable="NOT NULL" role="str">nome</atrib>
 		<atrib tb-name="uf" type="varchar" length="2" nullable="NOT NULL" role="str">uf</atrib>	
-	</class>
-	<class name="Unidade" tb-name="inv_unidade" tb-id="id" auto_increment="1" charset="utf8">
-		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
-		<atrib tb-name="nome" type="varchar" length="50" nullable="NOT NULL" role="str">nome</atrib>
-		<atrib tb-name="endereco" type="varchar" length="50" nullable="NOT NULL" role="str">endereco</atrib>
-		<atrib tb-name="idEmpresa" length="20" nullable="NOT NULL" type="bigint"  role="fk" class-relation="Empresa" tb-relation="inv_empresa" col-relation="id" on-update="CASCADE" on-delete="CASCADE">empresa</atrib>		
-	</class>	
+	</class>		
 	<class name="Usuario" tb-name="inv_usuario" tb-id="id" auto_increment="1" charset="utf8">
 		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>	
 		<atrib tb-name="senha" type="varchar" length="40" nullable="NOT NULL" role="str">senha</atrib>	
