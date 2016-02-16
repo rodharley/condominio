@@ -12,7 +12,7 @@ class Permissao extends Dao{
 	}
 	
 	public function recuperaMenuAcessos($idPerfil){
-	$sql = "select * from ".$this::TABELA." where idPerfil = ".$idPerfil;
+	$sql = "select * from ".$this::TABELA." where idPerfil = ".$idPerfil;    
 	return $this->getSQL($sql);		
 		
 	}

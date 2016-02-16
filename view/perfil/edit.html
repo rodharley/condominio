@@ -1,4 +1,4 @@
-<form role="form" method="post" action="admin_perfil-action" id="frmEdit">
+<form role="form" method="post" action="perfil-do" id="frmEdit">
 <div class="box box-primary">
 	<div class="box-header">
 		<h3 class="box-title">{LABEL}</h3>
@@ -20,9 +20,9 @@
 					<label for="menu"><i class='fa'></i><b>Menu do Sistema</b></label>
 					<table  class="table table-condensed table-bordered table-striped">
 					<!-- BEGIN BLOCK_ITEM -->
-					<tr><th style="width: 2%"><input name="menus[]" type="checkbox" value="{IDMENU}" {CHECKMENU} /></th><th colspan="2">{DESC_MENU}</th></tr>
+					<tr><th style="width: 2%"><input name="menus[]" type="checkbox" value="{IDMENU}" class="flat-blue" {CHECKMENU} /></th><th colspan="2">{DESC_MENU}</th></tr>
 					<!-- BEGIN BLOCK_SUB_ITEM -->
-					<tr><td>&nbsp;</<td><td style="width: 2%"><input  name="menus[]" type="checkbox" value="{IDSUBMENU}" {CHECKSUBMENU}/></td><td>{DESC_SUBMENU_MENU}</td></tr>
+					<tr><td>&nbsp;</<td><td style="width: 2%"><input  name="menus[]" type="checkbox" class="flat-blue" value="{IDSUBMENU}" {CHECKSUBMENU}/></td><td>{DESC_SUBMENU_MENU}</td></tr>
 					<!-- END BLOCK_SUB_ITEM -->
 					<!-- END BLOCK_ITEM -->
 					</table>
@@ -41,10 +41,7 @@
 <script>
 	$(document).ready(function() {
 
-		//Flat red color scheme for iCheck
-                $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-                    checkboxClass: 'icheckbox_flat-red',
-                    radioClass: 'iradio_flat-red'
-                });
+		   
+                $("#frmEdit").validate();
 	});
 </script>

@@ -40,6 +40,7 @@ class Zurc {
 
         if (isset($_SERVER['REDIRECT_URL'])) {
             $file = "src/control/" . str_replace(PASTA, "", substr(str_replace("-", "/",$_SERVER['REDIRECT_URL']), 1)) . ".php";
+            
             if (file_exists($file)) {
                 try {
                     include ($file);

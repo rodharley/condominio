@@ -21,6 +21,6 @@ if ($now > $_SESSION['expire']) {
 }else{
     $_SESSION['start'] = time(); // Taking now logged in time.
     $_SESSION['expire'] = $_SESSION['start'] + (1800);
-    include("carregaLogin.php");
+    
 }
 ?>
