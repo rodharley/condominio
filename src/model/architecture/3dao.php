@@ -558,7 +558,7 @@ class Dao extends Lib {
             if (in_array($class['name'],$_REQUEST['tabela'])) {
                 foreach ($class->atrib as $atrib) {
                     if ($atrib['role'] == "fk") {
-                        $sql = "ALTER TABLE `" . $class['tb-name'] . "` ADD FOREIGN KEY (`" . $atrib['tb-name'] . "`) REFERENCES `" . $xml['name'] . "`.`" . $atrib['tb-relation'] . "`(`" . $atrib['col-relation'] . "`) ON DELETE " . $atrib['on-delete'] . " ON UPDATE " . $atrib['on-update'] . ";";
+                        $sql = "ALTER TABLE `" . $class['tb-name'] . "` ADD FOREIGN KEY (`" . $atrib['tb-name'] . "`) REFERENCES `" . $atrib['tb-relation'] . "`(`" . $atrib['col-relation'] . "`) ON DELETE " . $atrib['on-delete'] . " ON UPDATE " . $atrib['on-update'] . ";";
                         $this -> DAO_ExecutarQuery($sql);
                     }
                 }
