@@ -43,19 +43,19 @@ class Message
 	
 	switch($tipo){
 		case 'success':
-		$strReturn =  '<div class="alert alert-success alert-dismissable">
+		$strReturn =  '<div class="alerta alert alert-success alert-dismissable">
                                         <i class="fa fa-check"></i>
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                         <b>Sucesso!</b> '.$this->mensagem.'</div>';
 		break;
 		case 'danger':
-		$strReturn =  '<div class="alert alert-danger alert-dismissable">
+		$strReturn =  '<div class="alerta alert alert-danger alert-dismissable">
                                         <i class="fa fa-ban"></i>
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                         <b>Erro!</b> '.$this->mensagem.'</div>';
 		break;
 		case 'warning':
-		$strReturn =  '<div class="alert alert-warning alert-dismissable">
+		$strReturn =  '<div class="alerta alert alert-warning alert-dismissable">
                                         <i class="fa fa-warning"></i>
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                         <b>Aviso!</b> '.$this->mensagem.'</div>';

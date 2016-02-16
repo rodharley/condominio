@@ -3,7 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Condomínio 106 Sul - Brasília - DF</title>
+        <title>{EMPRESA_NOME}</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="img/icon.png">
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.5 -->
@@ -23,8 +27,12 @@
         <![endif]-->
         <!-- jQuery 2.1.4 -->
         <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
-        <!-- Bootstrap 3.3.5 -->
+        <!-- Bootstrap 3.3.5 -->        
         <script src="plugins/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+        <script src="plugins/jqValidation/jquery.validate.min.js"></script>
+        <script src="plugins/jqValidation/additional-methods.min.js"></script>
+        <script src="plugins/jqValidation/localization/messages_pt_BR.min.js"></script>
+        <script src="js/default.js"></script>    
     </head>
     <body class="">
         <header id="top" class="navbar navbar-static-top cd-header">
@@ -33,13 +41,13 @@
                     <button aria-expanded="false" aria-controls="bs-navbar" data-target="#bs-navbar" data-toggle="collapse" type="button" class="navbar-toggle collapsed">
                         <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand cd-logo-header" href="index.php"><img src="img/logo_header.png"/></a>
+                    <a class="navbar-brand cd-logo-header" href="index-home"><img src="img/clients/{EMPRESA_LOGO}"/></a>
                 </div>
 
                 <nav class="collapse navbar-collapse" id="cd-navbar">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="home-home"><i class="fa fa-home"> </i> Home</a>
+                            <a href="index-home"><i class="fa fa-home"> </i> Home</a>
                         </li>
                         <li>
                             <a href="home-faleconosco"> <i class="fa fa-envelope-o"> </i> Fale Conosco </a>
@@ -52,11 +60,7 @@
                         </li>
                     </ul>
                     <div class="pull-right cd-info-header">
-                        Condomínio do Bloco F da SQS 106
-                        <br/>
-                        <small>SQL 106 Bloco F | 70.345-060 - Brasília DF</small>
-
-                    </div>
+                        {EMPRESA_ENDERECO}</div>
                 </nav>
             </div>
         </header>
@@ -73,4 +77,4 @@
             </div>
         </footer>
     </body>
-</html>
+    </html>

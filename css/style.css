@@ -108,6 +108,13 @@ body {
 }
 
 /* MODIFICACOES NO BOOTSTRAP */
+
+.alerta{
+	position:relative;
+	z-index:9999;
+	margin-left:2em;
+	margin-right: 2em;
+}
 .navbar-toggle .icon-bar {
     border-radius: 1px;
     display: block;

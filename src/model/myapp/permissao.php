@@ -1,5 +1,5 @@
 <?php
-class Acesso extends Dao{
+class Permissao extends Dao{
     const TABELA = 'inv_permissao';
 	var $menu = NULL;
 	var $perfil = NULL;
@@ -12,7 +12,7 @@ class Acesso extends Dao{
 	}
 	
 	public function recuperaMenuAcessos($idPerfil){
-	$sql = "select * from ".$this::TABELA." where idPerfil = ".$idPerfil;    
+	$sql = "select * from ".$this::TABELA." where idPerfil = ".$idPerfil;
 	return $this->getSQL($sql);		
 		
 	}

@@ -4,7 +4,7 @@ if (isset($_REQUEST['action'])) {
         case 'login' :
             $ob = new Usuario();
             if ($ob -> login($_REQUEST['email'], $_REQUEST['senha']))
-                header("Location: home-home");
+              header("Location: home-home");
             else
                 header("Location:" . MAIN_CONTROLE);
             break;

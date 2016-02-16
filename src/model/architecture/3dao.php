@@ -320,8 +320,7 @@ class Dao extends Lib {
         $arrayItens = array();
         foreach ($xml->children() as $elemento) {
             if ($elemento['name'] == get_class($this)) {
-                $rs = $this -> DAO_ExecutarQuery($sql);
-                
+                $rs = $this -> DAO_ExecutarQuery($sql);                
                 if ($this -> DAO_NumeroLinhas($rs) > 0) {
                     while ($arrayItem = $this -> DAO_GerarArray($rs)) {
                         $object = new $this;
@@ -546,7 +545,7 @@ class Dao extends Lib {
                     }
 
                 }
-                $sql .= substr($atributos, 0, -1) . ") ENGINE=InnoDB DEFAULT CHARSET=" . $class['charset'] . " AUTO_INCREMENT=" . $class['auto_increment'] . ";";
+                $sql .= substr($atributos, 0, -1) . ") ENGINE=InnoDB DEFAULT CHARSET=" . $class['charset'] . " AUTO_INCREMENT=" . $class['auto_increment'] . ";";                
                 $this -> DAO_ExecutarQuery($sql);
 
                 //habilita contranints

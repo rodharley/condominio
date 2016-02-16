@@ -1,31 +1,35 @@
 <?php
 //MONTAGEM DO MENU
 $menuob = new Menu();
-$listaMenu = $menuob->recuperaMenus(null,$_SESSION['fmj.menu']);
-foreach ($listaMenu as $key => $menu) {
-	$TPL->CLASS_MENU = "";
-	$TPL->MENU_SETA = "";	
-	if($menu->url != ""){
-		$TPL->DESC_MENU = $menu->nome;
-		$TPL->URL_MENU = $menu->url;
-		$TPL->ICON_MENU = $menu->icone;		
+$listaMenu = $menuob->recuperaMenus(null,$_SESSION['zurc.menu']);
+foreach ($listaMenu as $key => $menu1) {
+	$tpl->CLASS_MENU = "";
+	$tpl->MENU_SETA = "";
+    $tpl->ACTIVE_MENU = "";
+    $tpl->ACTIVE_SUB_MENU = "";	
+	if($menu1->url != ""){
+		$tpl->DESC_MENU = $menu1->nome;
+		$tpl->URL_MENU = $menu1->url;
+		$tpl->ICON_MENU = $menu1->icone;
+        $tpl->ACTIVE_MENU = $menu1->id == $menu ? "active" : "";		
 	}else{
-		$TPL->DESC_MENU = $menu->nome;
-		$TPL->ICON_MENU = $menu->icone;
-		$TPL->CLASS_MENU = "treeview";
-		$TPL->MENU_SETA = '<i class="fa fa-angle-left pull-right"></i>';
-		$subs = $menuob->recuperaMenus($menu->id,$_SESSION['fmj.menu']);
+		$tpl->ACTIVE_MENU = $menu1->id == $menu ? "active" : "";    
+		$tpl->DESC_MENU = $menu1->nome;
+		$tpl->ICON_MENU = $menu1->icone;
+		$tpl->CLASS_MENU = "treeview";
+		$tpl->MENU_SETA = '<i class="fa fa-angle-left pull-right"></i>';
+		$subs = $menuob->recuperaMenus($menu1->id,$_SESSION['zurc.menu']);
+        $tpl->ACTIVE_SUB_MENU = "";
 		foreach ($subs as $key2 => $submenu) {
-			$TPL->DESC_SUBMENU = $submenu->nome;
-			$TPL->URL_SUBMENU = $submenu->url;			
-			$TPL->block("BLOCK_SUBMENU");
+			$tpl->DESC_SUBMENU = $submenu->nome;
+			$tpl->URL_SUBMENU = $submenu->url;		
+            $tpl->ACTIVE_SUB_MENU = $submenu->id == $menu ? "active" : "";
+            $tpl->ACTIVE_MENU = $submenu->id == $menu ? "active" : "";
+			$tpl->block("BLOCK_SUBMENU");
 		}		
-		$TPL->block("BLOCK_MENU_DROPDOWN");
+		$tpl->block("BLOCK_MENU_DROPDOWN");
 	}
-	$TPL->block("BLOCK_MENU");
+	$tpl->block("BLOCK_MENU");
 }
 
-$TPL->NOME_USER = $_SESSION['fmj.userNome'];
-$TPL->FOTO_USER = $_SESSION['fmj.userFoto'];	
-$TPL->NOME_PERFIL = $_SESSION['fmj.userPerfil'];
 ?>

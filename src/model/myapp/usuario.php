@@ -97,13 +97,13 @@ class Usuario extends Dao {
 					
                     
 					//carrega os itens de menu do perfil
-					$a = new Acesso();                    
-					$lista = $a -> recuperaMenuAcessos($this -> perfil -> id);					
+					$a = new Permissao();                    
+					$lista = $a -> recuperaMenuAcessos($this -> perfil -> id);	
+                    			
 					$_SESSION['zurc.menu'] = "0";					
-					foreach ($lista as $key => $acesso) {
+					foreach ($lista as $key => $acesso) {					    
 						$_SESSION['zurc.menu'] .= "," . $acesso -> menu -> id;
 					}
-					
 					return true;
 				} else {
 					

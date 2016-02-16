@@ -1,7 +1,9 @@
 <?php
 
 class Perfil extends Dao{
-	const TABELA = 'inv_perfil';        
+	const TABELA = 'inv_perfil';  
+    const SINDICO = 1;
+          
 	var $id = NULL;
 	var $descricao;
 	

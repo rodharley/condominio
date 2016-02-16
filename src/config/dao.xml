@@ -9,7 +9,10 @@
 		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
 		<atrib tb-name="nomeFantasia" type="varchar" length="50" nullable="NOT NULL" role="str">nomeFantasia</atrib>
 		<atrib tb-name="razaoSocial" type="varchar" length="50" nullable="NULL" role="str">razaoSocial</atrib>
-		<atrib tb-name="cnpj" type="varchar" length="14" nullable="NOT NULL" role="str">cnpj</atrib>		
+		<atrib tb-name="cnpj" type="varchar" length="14" nullable="NOT NULL" role="str">cnpj</atrib>
+		<atrib tb-name="site" type="varchar" length="255" nullable="NOT NULL" role="str">site</atrib>
+		<atrib tb-name="endereco" type="varchar" length="255" nullable="NOT NULL" role="str">endereco</atrib>
+		<atrib tb-name="logomarca" type="varchar" length="255" nullable="NOT NULL" role="str">logomarca</atrib>		
 	</class>
 	<class name="Log" tb-name="inv_log" lazy="true" tb-id="id" auto_increment="1" charset="utf8">
 		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
@@ -49,7 +52,7 @@
 		<atrib tb-name="email" type="varchar" length="50" nullable="NOT NULL" role="str">email</atrib>	
 		<atrib tb-name="nome" type="varchar" length="50" nullable="NOT NULL" role="str">nome</atrib>
 		<atrib tb-name="foto" type="varchar" length="200" nullable="NOT NULL" role="str">foto</atrib>
-		<atrib tb-name="dataCadastro" type="date" length="" nullable="NULL" role="data" default="NULL">dataCadastro</atrib>		
+		<atrib tb-name="dataCadastro" type="date" length="" nullable="NULL" role="date" default="0000-00-00 00:00:00">dataCadastro</atrib>		
 		<atrib tb-name="ativo" type="tinyint" length="1" nullable="NOT NULL" role="number" default="1">ativo</atrib>
 		<atrib tb-name="idPerfil" length="20" nullable="NULL" type="bigint"  role="fk" class-relation="Perfil" tb-relation="inv_perfil" col-relation="id" on-update="SET NULL" on-delete="SET NULL">perfil</atrib>
 		<atrib tb-name="idEmpresa" length="20" nullable="NULL" type="bigint"  role="fk" class-relation="Empresa" tb-relation="inv_empresa" col-relation="id" on-update="SET NULL" on-delete="SET NULL">empresa</atrib>		
