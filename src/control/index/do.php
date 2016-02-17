@@ -10,7 +10,9 @@ if (isset($_REQUEST['action'])) {
             break;
         case 'recupera' :
              $ob = new Usuario();
+             $ob->conn->connection->autocommit(false);
             $ob->EnviarSenha($_REQUEST['email']);
+            $ob->conn->connection->commit();
             header("Location:" . MAIN_CONTROLE);
             break;
         case 'registro' :
@@ -29,7 +31,7 @@ if (isset($_REQUEST['action'])) {
             if($ob->ativar())
                 header("Location: home-home");
             else
-                header("Location: index-login");
+                header("Location: index-home");
             break;
         default :
             break;

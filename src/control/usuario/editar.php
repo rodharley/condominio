@@ -6,7 +6,7 @@ $tpl->addFile("CONTENT", "view/usuario/edit.html");
 include("includes/config.php");
 $tpl->HEADER_TITLE = "Manutenção de Usuário";
 $tpl->HEADER_BREAD_CRUMB = '<li><a href="home-home"><i class="fa fa-home"> </i> Home</a></li>
-                                        <li><a href="perfil-main"><i class="fa fa-users"> </i> Usuário</a></li>
+                                        <li><a href="usuario-main"><i class="fa fa-users"> </i> Usuário</a></li>
                                          <li class="active">Editar</li>';
 
 $usu = new Usuario();

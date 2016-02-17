@@ -12,6 +12,12 @@ switch ($_REQUEST['acao']){
         $obj->conn->connection->commit();
         header("Location:usuario-main");
 		break;
+     case 'meus' :
+        $obj->conn->connection->autocommit(false);
+        $obj->AlterarMeusDados();
+        $obj->conn->connection->commit();
+        header("Location:usuario-meusDados");
+        break;
      case 'incluir' :
         $obj->conn->connection->autocommit(false);
         $obj->Salvar();

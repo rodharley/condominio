@@ -173,7 +173,7 @@ class Usuario extends Dao {
 		$_SESSION['zurc.mensagem'] = 8;
         else
         $_SESSION['zurc.mensagem'] = 17;		
-		exit();
+		
 	}
 
 	function Salvar() {
@@ -188,6 +188,7 @@ class Usuario extends Dao {
             $this->dataCadastro = Date("Y-m-d");
             $this->empresa = new Empresa(EMPRESA);
             $_SESSION['zurc.mensagem'] = 4;
+            $this->foto = "user.png";
 		}
 				
 		$this->nome = $_REQUEST['nome'];
@@ -225,34 +226,26 @@ class Usuario extends Dao {
 
 
 	function AlterarMeusDados() {
-		$strCPF = $this -> limpaCpf($_REQUEST['cpf']);
 		if ($this -> recuperaPorLogin($_REQUEST['email'], $_SESSION['zurc.userId'])) {
 			$_SESSION['zurc.mensagem'] = 3;
 			
 		} else {
 			$this -> getById($_SESSION['zurc.userId']);
-			$this -> pessoa-> nome = $_REQUEST['nome'];
-			$this -> pessoa->cpf = $strCPF;
-			$this -> pessoa->email = $_REQUEST['email'];
-			$this -> pessoa -> telResidencial = str_replace("_","",$_REQUEST['telefone']);
-            $this -> pessoa -> telCelular = str_replace("_","",$_REQUEST['celular']);
+			$this -> nome = $_REQUEST['nome'];
+			$this -> email = $_REQUEST['email'];
 			if ($_REQUEST['senha'] != "")
 				$this -> senha = md5($_REQUEST['senha']);
 
 			//incluir imagem se ouver
 			if ($_FILES['foto']['name'] != "") {
-				if ($this -> pessoa -> foto != "pessoa.png")
-					$this -> apagaImagem($this -> pessoa ->  foto, "img/pessoas/");
-				$nomefoto = $this -> retornaNomeUnico($_FILES['foto']['name'], "img/pessoas/");
-				$this -> salvarFoto($_FILES['foto'], $nomefoto, "img/pessoas/");
-				$this ->  pessoa -> foto = $nomefoto;
+				if ($this -> foto != "user.png")
+					$this -> apagaImagem($this -> foto, "img/users/");
+				$nomefoto = $this -> retornaNomeUnico($_FILES['foto']['name'], "img/users/");
+				$this -> salvarFoto($_FILES['foto'], $nomefoto, "img/users/");
+				$this -> foto = $nomefoto;
 			}
-			
-            $this->pessoa->Save();
 			$this -> save();
-			$_SESSION['zurc.mensagem'] = 5;
-			header("Location:admin_home-home");
-			exit();
+			$_SESSION['zurc.mensagem'] = 5;			
 		}
 	}
 

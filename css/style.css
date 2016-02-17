@@ -72,6 +72,11 @@ body {
 	font-size: 1.2em;
 	
 }
+
+.form-box {
+    margin: 90px auto 0;
+    width: 360px;
+}
 /*ICONES DO SISTEMA */
 .icone {
     display: inline-block;
