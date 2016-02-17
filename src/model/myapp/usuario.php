@@ -197,7 +197,11 @@ class Usuario extends Dao {
 		$p = new Perfil();
 		$p -> id = $_REQUEST['perfil'];
 		$this -> perfil = $p;
-		$this-> unidade	= new Unidade($_REQUEST['unidade']);	
+        if($_REQUEST['unidade'] != "")
+		$this-> unidade	= new Unidade($_REQUEST['unidade']);
+        else {
+            $this-> unidade = NULL;
+        }	
 		
 		if ($_FILES['foto']['name'] != "") {
 			//incluir imagem se ouver
