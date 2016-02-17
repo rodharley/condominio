@@ -1,4 +1,4 @@
-$(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
+
 $(document).ready(function() {
 
 	$("[data-mask]").inputmask();

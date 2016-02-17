@@ -1,0 +1,52 @@
+<script>
+
+function pesquisar(){
+
+            $.ajax({
+                url : "unidade-ajax_paginador",
+                type : "POST",
+                data : $("#frmPesquisa").serialize(),
+            }).done(function(msg) {
+                $("#boxLista").html(msg);
+            });
+
+        }
+ 
+	$(document).ready(function() {
+		pesquisar();
+	});
+;
+</script>
+
+<div class="box box-primary">
+	<div class="box-header">
+		<h3 class="box-title">Unidades:</h3>
+		<div class="box-tools">
+			<form name="frmPesquisa" id="frmPesquisa" action="#" method="post" class="pull-right form form-inline">
+			    
+			<div class="input-group">				
+				<input type="text" name="pesquisa" class="form-control input-sm " style="width: 150px;" placeholder="Pesquisar" value=""/>
+				<div class="input-group-btn">
+					<button type="button" class="btn btn-sm btn-default paginar" value="1">
+						<i class="fa fa-search"> </i>
+					</button>
+				</div>
+			</div>
+			<input type="hidden" name="pagina" id="pagina" value=""/>
+			</form>
+		</div>
+
+	</div>
+	<div class="box-body" id="boxLista">
+		
+	</div>
+</div>
+<div class="row">	
+	<div class="col-sm-12 text-right">		
+	    <p>
+		<button class="btn btn-default btVoltar" type="button"><i class="fa fa-backward"> </i> Voltar</button>
+		<a class="btn btn-primary" href="unidade-editar"><i class="fa fa-plus"> </i> Adicionar</a>		
+		
+	   </p>
+	</div>
+</div>

@@ -9,6 +9,7 @@ class Usuario extends Dao {
 	var $foto;
     var $dataCadastro;
     var $empresa = NULL;
+    var $unidade = NULL;
 	function LogOff() {
 		
 		//grava a log
@@ -26,7 +27,7 @@ class Usuario extends Dao {
 	}
 
 	function recuperaTotal($busca = "",$perfil = "") {
-				$sql = "select count(id) as total from ".$this::TABELA." WHERE 1 = 1 ";
+				$sql = "select count(id) as total from ".$this::TABELA." WHERE idEmpresa = ".EMPRESA;
 		if ($busca != "")
 			$sql .= " and (nome like '$busca%')";
         if($perfil != "")
@@ -38,7 +39,7 @@ class Usuario extends Dao {
 
 	function recuperaTotalPerfil($idPerfil, $busca = "") {
 		
-				$sql = "select count(id) as total from ".$this::TABELA." WHERE idPerfil = $idPerfil";
+				$sql = "select count(id) as total from ".$this::TABELA." WHERE idEmpresa = ".EMPRESA." and idPerfil = $idPerfil";
 		
 		if ($busca != "")
 			$sql .= " and (nome like '$busca%')";
@@ -50,7 +51,7 @@ class Usuario extends Dao {
 	function listarUsuariosPerfil($idPerfil, $primeiro = 0, $quantidade = 9999, $busca = "") {
 
 		
-				$sql = "select u.* from ".$this::TABELA." u where u.idPerfil = $idPerfil";
+				$sql = "select u.* from ".$this::TABELA." u where idEmpresa = ".EMPRESA." u.idPerfil = $idPerfil";
 		
 		if ($busca != "")
 			$sql .= " and (nome like '$busca%')";
@@ -62,7 +63,7 @@ class Usuario extends Dao {
 
 	function listarUsuarios($primeiro = 0, $quantidade = 9999, $busca = "", $perfil = "") {
 
-				$sql = "select u.* from ".$this::TABELA." u where 1 = 1";
+				$sql = "select u.* from ".$this::TABELA." u where idEmpresa = ".EMPRESA;
 		
 		if ($busca != "")
 			$sql .= " and (nome like '$busca%')";
@@ -176,20 +177,26 @@ class Usuario extends Dao {
 	}
 
 	function Salvar() {
-		if($_REQUEST['id'] != ""){
-			$this -> getById($_REQUEST['id']);
-			
+		if($_REQUEST['id'] != "0"){
+			$this -> getById($this->md5_decrypt($_REQUEST['id']));
+			$_SESSION['zurc.mensagem'] = 5;
+            if($_REQUEST['senha'] != "")
+            $this->senha = md5($_REQUEST['senha']);
 		}else{
 			$this -> ativo = 0;
 			$this -> senha = "";
+            $this->dataCadastro = Date("Y-m-d");
+            $this->empresa = new Empresa(EMPRESA);
+            $_SESSION['zurc.mensagem'] = 4;
 		}
 				
 		$this->nome = $_REQUEST['nome'];
 		$this->email = $_REQUEST['email'];
+        $this -> ativo = $_REQUEST['ativo'];
 		$p = new Perfil();
 		$p -> id = $_REQUEST['perfil'];
 		$this -> perfil = $p;
-				
+		$this-> unidade	= new Unidade($_REQUEST['unidade']);	
 		
 		if ($_FILES['foto']['name'] != "") {
 			//incluir imagem se ouver
@@ -199,10 +206,13 @@ class Usuario extends Dao {
 		}	
         
 		$this -> save();      
-		       
+        if($_REQUEST['id'] == "0"){
+            $this -> ativo = 0;
+            $this -> save();      		       
         $email = new Email();
-        $email->enviarEmailNovoUsuario($this->pessoa->nome,$this->pessoa->email,$this->id);
-		$_SESSION['zurc.mensagem'] = 4;		
+        $email->enviarEmailNovoUsuario($this->nome,$this->email,$this->id);
+            }
+				
 
 	}
 

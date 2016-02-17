@@ -1,0 +1,172 @@
+<form role="form" method="post" action="usuario-do" id="frmEditUsuario" enctype="multipart/form-data" autocomplete="off">
+	<div class="box box-primary">
+		<div class="box-header">
+			<h3 class="box-title">{LABEL}</h3>
+		</div>
+		<div class="box-body">
+
+			<input type="hidden" name="id" id="id" value="{id}"/>
+			<input type="hidden" name="acao" value="{ACAO}"/>
+			
+			<div class="row">
+				<div class="col-md-6 col-xs-12">
+					<div class="form-group">
+						<label for="nome"><i class='fa'></i><b>Nome</b></label>
+						<input type="text" id="nome" name="nome" placeholder="Nome" value="{nome}" class="required form-control"/>
+					</div>
+				</div>
+				<div class="col-md-6 col-xs-12">
+
+                    <div class="form-group">
+                        <label for="ativo"><i class='fa'></i><b>Ativo</b></label>
+
+                    </div>
+                    <div class="radio-inline">
+                        <label>
+                            <input type="radio" name="ativo" id="ativon" value="0" class="flat-blue" {checknao}/>
+                            Não </label>
+                    </div>
+                    <div class="radio-inline">
+                        <label>
+                            <input type="radio" name="ativo" id="ativos" value="1" class="flat-blue" {checksim}/>
+                            Sim </label>
+                    </div>
+
+                </div>				
+            </div>				
+				<div class="row">
+				<div class="col-md-6 col-xs-12">
+					<div class="form-group">
+						<label for="email"><i class='fa'></i><b>E-mail</b></label>
+                        <input type="text" id="email" name="email" placeholder="E-mail" value="{email}" class=" required form-control email" autocomplete="off"/>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-xs-12">
+					<div class="form-group">
+						<label for="senha"><i class='fa'></i><b>Senha</b></label>
+						<input type="password" id="senha" name="senha" placeholder="Senha" value="{senha}" autocomplete="off" class="form-control"  autocomplete="off"/>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6 col-xs-12">
+					<div class="form-group">
+						<label for="email2"><i class='fa'></i><b>Confirmação de E-mail</b></label>
+                        <input type="text" id="email2" name="email2" placeholder="E-mail Confirmar" value="{email}" class=" required form-control email" autocomplete="off"/>
+					</div>
+				</div>
+				<div class="col-md-6 col-xs-12">
+					<div class="form-group">
+						<label for="foto"><i class='fa'></i><b>Foto</b></label>
+                        <input type="file"  name="foto" id="foto"/>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="row">
+				<div class="col-md-6 col-xs-12">
+					<div class="form-group">
+						<label for="perfil"><i class='fa'></i><b>Perfil</b></label>
+						<select name="perfil" id="perfil" class="required form-control">
+							<!-- BEGIN BLOCK_ITEM -->
+							<option value="{idItem}" {checkItem}>{labelItem}</option>
+							<!-- END BLOCK_ITEM -->
+						</select>
+					</div>
+
+				</div>		
+				<div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label for="unidade"><i class='fa'></i><b>Unidade</b></label>
+                        <select name="unidade" id="unidade" class="form-control">
+                            <option value=""></option>
+                            <!-- BEGIN BLOCK_ITEM_UNIDADE -->
+                            <option value="{idItem}" {checkItem}>{labelItem}</option>
+                            <!-- END BLOCK_ITEM_UNIDADE -->
+                        </select>
+                    </div>
+
+                </div>		
+			</div>
+
+		</div>
+		<div class="box-footer text-center">
+			<button class="btn btn-success" type="submit">
+				Salvar
+			</button>
+			<button class="btn btn-default btVoltar" type="button">
+				Voltar
+			</button>
+		</div>
+
+	</div>
+</form>
+<script>
+	$(document).ready(function() {
+		$("#foto").fileinput({
+				 initialPreview: [
+					"{IMG_USER}",
+			],
+			overwriteInitial: true,
+			maxFileSize: 2000,
+			maxFilesNum: 1,
+			allowedFileExtensions: ["jpg", "jpeg", "gif", "png"],
+			previewClass: "bg-warning",
+			allowedFileTypes: ["image"],
+			showUpload: false,
+			showCaption: false
+		});
+
+
+		$("#frmEditUsuario").validate({
+			rules : {
+				email2 : {
+					equalTo : '[name="email"]'
+				},
+				telefone: {
+				required: function() {
+					return $("#celular").val() == "";
+				}          		
+				
+				},
+				celular: {
+				required: function() {
+					return $("#telefone").val() == "";
+				}    
+				},	
+				email: {
+                required: true,
+                remote: {
+							url: "usuario-ajax_verificaLogin",
+							type: "post",
+							data: {
+                              idUser: function() {
+                                return $("#id").val();
+                              }
+                            }
+							}
+				}
+				},
+				messages: {
+					email: {
+					remote: "E-mail já existe no sistema"
+					}
+				}
+		});
+		
+		
+		  $("#uf").change(function(){
+            $.ajax({
+                url : "ajax/cidadesPorUf.php",
+                type : "POST",
+                data : {uf: $(this).val()},                
+            }).done(function(msg) {
+                $("#cidade").html(msg);
+            });
+
+        });
+	});
+</script>

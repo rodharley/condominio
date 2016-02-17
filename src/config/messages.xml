@@ -18,6 +18,11 @@
 <mensagem id="16" type="success">Perfil incluído com sucesso.</mensagem>
 <mensagem id="17" type="warning">Não foi possível excluir o perfil pois existem usuários cadastrados nele. </mensagem>
 <mensagem id="18" type="success">Perfil excluído com sucesso.</mensagem>
+<mensagem id="19" type="success">Unidade alterada com sucesso.</mensagem>
+<mensagem id="20" type="success">Unidade incluída com sucesso.</mensagem>
+<mensagem id="21" type="warning">Não foi possível excluir a unidade pois existem usuários cadastrados nela. </mensagem>
+<mensagem id="22" type="success">Unidade excluída com sucesso.</mensagem>
+
 <mensagem id="31" type="warning">Estamos com problemas para processar essa operação no momento, por favor tente novamente mais tarde.</mensagem>
 <mensagem id="32" type="danger">Não é possível excluir esse registro pois o mesmo contém dados no sistema que não podem ser excluídos.</mensagem>
 <mensagem id="33" type="warning">Para acessar a funcionalidade você deve autenticar ou criar um novo usuário.</mensagem>

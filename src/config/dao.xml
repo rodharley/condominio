@@ -46,7 +46,12 @@
 		<atrib tb-name="id" type="int" length="4" nullable="NOT NULL" role="id">id</atrib>	
 		<atrib tb-name="nome" type="varchar" length="20" nullable="NOT NULL" role="str">nome</atrib>
 		<atrib tb-name="uf" type="varchar" length="2" nullable="NOT NULL" role="str">uf</atrib>	
-	</class>		
+	</class>	
+	<class name="Unidade" tb-name="inv_unidade" tb-id="id" auto_increment="1" charset="utf8">
+		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>	
+		<atrib tb-name="descricao" type="varchar" length="200" nullable="NOT NULL" role="str">descricao</atrib>
+		<atrib tb-name="idEmpresa" length="20" nullable="NOT NULL" type="bigint"  role="fk" class-relation="Empresa" tb-relation="inv_empresa" col-relation="id" on-update="CASCADE" on-delete="CASCADE">empresa</atrib>	
+	</class>	
 	<class name="Usuario" tb-name="inv_usuario" tb-id="id" auto_increment="1" charset="utf8">
 		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>	
 		<atrib tb-name="senha" type="varchar" length="40" nullable="NOT NULL" role="str">senha</atrib>	
@@ -56,7 +61,8 @@
 		<atrib tb-name="dataCadastro" type="date" length="" nullable="NULL" role="date" default="0000-00-00 00:00:00">dataCadastro</atrib>		
 		<atrib tb-name="ativo" type="tinyint" length="1" nullable="NOT NULL" role="number" default="1">ativo</atrib>
 		<atrib tb-name="idPerfil" length="20" nullable="NULL" type="bigint"  role="fk" class-relation="Perfil" tb-relation="inv_perfil" col-relation="id" on-update="SET NULL" on-delete="SET NULL">perfil</atrib>
-		<atrib tb-name="idEmpresa" length="20" nullable="NULL" type="bigint"  role="fk" class-relation="Empresa" tb-relation="inv_empresa" col-relation="id" on-update="SET NULL" on-delete="SET NULL">empresa</atrib>		
+		<atrib tb-name="idEmpresa" length="20" nullable="NULL" type="bigint"  role="fk" class-relation="Empresa" tb-relation="inv_empresa" col-relation="id" on-update="SET NULL" on-delete="SET NULL">empresa</atrib>
+		<atrib tb-name="IdUnidade" length="20" nullable="NULL" type="bigint"  role="fk" class-relation="Unidade" tb-relation="inv_unidade" col-relation="id" on-update="SET NULL" on-delete="SET NULL">unidade</atrib>		
 	</class>
 		
 </bd>

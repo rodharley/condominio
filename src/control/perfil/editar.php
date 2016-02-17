@@ -4,6 +4,10 @@ include("includes/lock.php");
 $tpl = new Template("view/templates/default_bootstrap_lteadmin.html");
 $tpl->addFile("CONTENT", "view/perfil/edit.html");
 include("includes/config.php");
+$tpl->HEADER_TITLE = "Manutenção de Perfil";
+$tpl->HEADER_BREAD_CRUMB = '<li><a href="home-home"><i class="fa fa-home"> </i> Home</a></li>
+                                        <li><a href="perfil-main"><i class="fa fa-users"> </i> Perfil</a></li>
+                                         <li class="active">Editar</li>';
 //TRATA O CONTEUDO------------------------------------------------------------------------------------------------------------
 
 $obj = new Perfil();
