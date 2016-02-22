@@ -112,6 +112,21 @@ body {
 	background: url('../img/icon-seguranca.png');
 }
 
+/*ITENS DE LISTA */
+.lista-item{
+margin-bottom:0px; 
+border-top:1px solid #E3E3E8;
+min-height:120px;
+}
+.lista-item h2 {
+	font-size: 1.2em;
+}
+
+.lista-item  img {
+	height: 40px;
+    margin: auto 10px auto auto;
+    width: 40px;
+}
 /* MODIFICACOES NO BOOTSTRAP */
 
 .alerta{

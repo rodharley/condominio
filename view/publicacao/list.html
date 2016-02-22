@@ -2,7 +2,7 @@
 	$(document).ready(function() {
 		$('.excluir').click(function() {
 			if (confirm("Tem certeza que deseja excluir esse registro e todas as suas dependências do sistema?"))
-				window.location.href = 'unidade-do?acao=excluir&id=' + $(this).attr("value");
+				window.location.href = 'publicacao-{GRUPO}-do?acao=excluir&id=' + $(this).attr("value");
 		});
 		
 		$(".paginar").click(function(){
@@ -17,7 +17,7 @@
 		<table class="table table-striped table-hover data-table">
 			<thead>
 				<tr>
-					<th>Nome</th>
+					<th>Título</th>
 					<th style="width: 160px;" class="text-center hidden-xs">Ação</th>
 					<th class="visible-xs">Ação</th>
 				</tr>
@@ -28,7 +28,7 @@
 					<td>{nome}</td>
 					<td class="text-right hidden-xs" >
 					<div class="btn-group">
-						<a type="button" class="btn btn-default" href="unidade-editar?id={ID_HASH}" title="Editar" ><span class="fa fa-edit"></span></a>
+						<a type="button" class="btn btn-default" href="publicacao-{GRUPO}-editar?id={ID_HASH}" title="Editar" ><span class="fa fa-edit"></span></a>
 						<a class="btn btn-danger excluir" href="#"  value="{ID_HASH}"  title="Excluir"><span class="fa fa-trash-o"> </span></a>
 					</div></td>
 					<td class="visible-xs">
@@ -38,7 +38,7 @@
 						</button>
 						<ul class="dropdown-menu" role="menu">
 							<li>
-								<a href="unidade-editar?id={ID_HASH}"><span class="fa fa-edit"></span> Editar</a>
+								<a href="publicacao-{GRUPO}-editar?id={ID_HASH}"><span class="fa fa-edit"></span> Editar</a>
 							</li>
 							<li class="divider"></li>
 							<li>

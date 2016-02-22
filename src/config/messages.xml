@@ -22,6 +22,10 @@
 <mensagem id="20" type="success">Unidade incluída com sucesso.</mensagem>
 <mensagem id="21" type="warning">Não foi possível excluir a unidade pois existem usuários cadastrados nela. </mensagem>
 <mensagem id="22" type="success">Unidade excluída com sucesso.</mensagem>
+<mensagem id="23" type="success">Publicação incluída com sucesso.</mensagem>
+<mensagem id="24" type="success">Publicação alterada com sucesso.</mensagem>
+<mensagem id="25" type="success">Publicação excluída com sucesso.</mensagem>
+<mensagem id="26" type="warning">Não foi possível excluir a publicação. </mensagem>
 
 <mensagem id="31" type="warning">Estamos com problemas para processar essa operação no momento, por favor tente novamente mais tarde.</mensagem>
 <mensagem id="32" type="danger">Não é possível excluir esse registro pois o mesmo contém dados no sistema que não podem ser excluídos.</mensagem>

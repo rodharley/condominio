@@ -5,13 +5,22 @@ class Email extends Dao{
 	var $conteudo;
 	var $tipo;
 	
+
+function enviarEmailPortal($email,$mensagem){
+    $emp = new Empresa();    
+    $emp->getById(EMPRESA);
+      $tplEmail = new Template("view/padrao/email.html");
+        $tplEmail -> ASSINATURA = str_replace("#url#",URL,Email::ASSINATURA);        
+        $tplEmail -> MENSAGEM = $email."<br/>".$mensagem;        
+        return $this -> mail_html($emp->emailcontato, REMETENTE, "Condominium - Email do portal", $tplEmail -> showString());
+}
 	
 	
 function enviarEmailRedefinirSenha($nome, $email,$idUsuario){
 		 $emp = new Empresa();
         $emp->getById(EMPRESA);    
 		$mensagem = "Sr(a). $nome, sua senha foi redefinida. Clique <a href='".URL. "/index-ativar?id=" . $this -> md5_encrypt($idUsuario)."'>Aqui</a> para gerar uma nova senha.";
-		$tplEmail = new Template("templates/padrao/email.html");
+		$tplEmail = new Template("view/padrao/email.html");
 		$tplEmail -> ASSINATURA = str_replace("#url#",URL,str_replace("#nome#",$_SESSION['zurc.userNome'],str_replace("#logomarca#",$emp->logomarca,Email::ASSINATURA)));
 		$tplEmail -> MENSAGEM = $mensagem;
 		return $this -> mail_html($email, REMETENTE, "Condomínio - Redefinição de Senha", $tplEmail -> showString());

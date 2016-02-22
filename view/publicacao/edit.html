@@ -1,0 +1,72 @@
+<form role="form" method="post" action="publicacao-{GRUPO}-do" id="frmEdit">
+<div class="box box-primary">
+	<div class="box-header">
+		<h3 class="box-title">{LABEL}</h3>
+	</div>
+	<div class="box-body">
+			<input type="hidden" name="id" value="{id}"/>
+			<input type="hidden" name="acao" value="{ACAO}"/>
+			<div class="row">
+				<div class="col-md-12 col-xs-12">
+					<div class="form-group">
+						<label for="descricao"><i class='fa'></i><b>Título</b></label>
+						<input type="text" id="descricao" name="descricao" placeholder="título da publicação" value="{TITULO}" class="required form-control"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+                <div class="col-md-2 col-xs-2">
+                    <div class="form-group">
+                        <label for="sumario"><i class='fa'></i><b>Data da Publicação</b></label>
+                        <input type="text" id="data" name="data" value="{DATA}" class="required form-control"/>
+                    </div>
+                </div>
+            </div>	
+			<div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <div class="form-group">
+                        <label for="texto"><i class='fa'></i><b>Conteúdo</b></label>
+                        <div id="summernote">{CONTEUDO}
+                        </div>
+                        <input type="text" name="texto" id="texto" value="" class="required" style="width: 0px; border:none;"/>                        
+                    </div>
+                </div>
+
+            </div>		
+
+	</div>
+<div class="panel-footer text-center">
+	<button class="btn btn-success" type="button" id="save">Salvar</button>
+	<button class="btn btn-default btVoltar" type="button">Voltar</button>
+</div>
+
+</div>
+</form>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/lang/summernote-pt-BR.js"></script>
+<script>
+	$(document).ready(function() {
+		       $('#data').datepicker();
+        
+        $('#summernote').summernote({
+            height : 300, // set editor height
+            lang: 'pt-BR',
+            minHeight : null, // set minimum height of editor
+            maxHeight : null, // set maximum height of editor
+
+            focus : true,                 // set focus to editable area after initializing summernote
+        });
+        
+        $("#save").click(function() {
+            var aHTML = $('#summernote').summernote('code');            
+            $("#texto").val(aHTML);
+            if($("#texto").val() == "<br>")
+                $("#texto").val("");
+            
+            $("#frmEdit").submit();
+        });
+                
+                $("#frmEdit").validate();
+	});
+</script>

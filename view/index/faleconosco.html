@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row cd-content">
+                <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Entre em Contato<br> <small>Envie-nos uma mensagem</small></h3>
+  </div>
+  <div class="panel-body">
+    <form id="frmEmail" action="#" novalidate="novalidate">
+  <div class="form-group">
+    <label for="email">Seu E-mail</label>
+    <input type="email" placeholder="Email" name="email" id="email" class="form-control required email" aria-required="true">
+  </div>
+  <div class="form-group">
+    <label for="texto">Mensagem</label>
+    <textarea class="form-control required" id="texto" name="texto" aria-required="true"></textarea>
+  </div>
+  <div class="row"><div class="col-md-2">
+    <button id="btEnviarEmail" class="btn btn-default" type="button">Enviar</button>
+  </div><div class="col-md-10">
+    <span id="carregaEmail"></span>
+  </div></div>
+</form>
+  </div>
+</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            {INC_LATERAL_DIREITA}
+            </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+         
+        
+        
+        $("#btEnviarEmail").click(function(){
+            if($("#frmEmail").valid()){
+            $.ajax({
+                url : "index-ajax_portal_enviar_email",
+                type : "POST",
+                data : $("#frmEmail").serialize(),
+
+                beforeSend: function( ) {
+                    $('#carregaEmail').html('{LOADING}');
+                },
+            }).done(function(msg) {
+                $("#carregaEmail").html(msg);
+                $("#frmEmail").trigger("reset");
+            });
+            }
+        });
+        
+        if ($("#frmEmail").length) {
+            $("#frmEmail").validate();
+        }
+        $("#frmLogin").validate();
+
+    });
+     
+</script>
+
+

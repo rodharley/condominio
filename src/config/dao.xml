@@ -13,6 +13,7 @@
 		<atrib tb-name="site" type="varchar" length="255" nullable="NOT NULL" role="str">site</atrib>
 		<atrib tb-name="endereco" type="varchar" length="255" nullable="NOT NULL" role="str">endereco</atrib>
 		<atrib tb-name="logomarca" type="varchar" length="255" nullable="NOT NULL" role="str">logomarca</atrib>		
+		<atrib tb-name="emailcontato" type="varchar" length="255" nullable="NOT NULL" role="str">emailcontato</atrib>
 	</class>
 	<class name="Log" tb-name="inv_log" lazy="true" tb-id="id" auto_increment="1" charset="utf8">
 		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
@@ -41,6 +42,15 @@
 		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
 		<atrib tb-name="idMenu" length="20" nullable="NOT NULL" type="bigint"  role="fk" class-relation="Menu" tb-relation="inv_menu" col-relation="id" on-update="CASCADE" on-delete="CASCADE">menu</atrib>
 		<atrib tb-name="idPerfil" length="20" nullable="NOT NULL" type="bigint" role="fk" class-relation="Perfil" tb-relation="inv_perfil" col-relation="id"  on-update="CASCADE" on-delete="CASCADE">perfil</atrib>		
+	</class>
+	<class name="Publicacao" tb-name="inv_publicacao" tb-id="id" auto_increment="1" charset="utf8">
+		<atrib tb-name="id" type="bigint" length="20" nullable="NOT NULL" role="id">id</atrib>
+		<atrib tb-name="titulo" type="varchar" length="200" nullable="NOT NULL" role="str">titulo</atrib>
+		<atrib tb-name="conteudo" type="longtext" length="" nullable="NOT NULL" role="txt">conteudo</atrib>		
+		<atrib tb-name="data" type="date" length="" nullable="NOT NULL" role="date">data</atrib>
+		<atrib tb-name="grupo" type="int" length="4" nullable="NOT NULL" role="number">grupo</atrib>
+		<atrib tb-name="idEmpresa" length="20" nullable="NULL" type="bigint"  role="fk" class-relation="Empresa" tb-relation="inv_empresa" col-relation="id" on-update="SET NULL" on-delete="SET NULL">empresa</atrib>
+		<atrib tb-name="idUsuario" length="20" nullable="NULL" type="bigint" role="fk" class-relation="Usuario" tb-relation="inv_usuario" col-relation="id"  on-update="CASCADE" on-delete="CASCADE">usuario</atrib>				
 	</class>	
 	<class name="Uf" tb-name="inv_uf" tb-id="id" auto_increment="1" charset="utf8">
 		<atrib tb-name="id" type="int" length="4" nullable="NOT NULL" role="id">id</atrib>	

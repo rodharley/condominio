@@ -399,8 +399,19 @@ else
 
 */
 
+function getData($mysqlDate){
+    return $this->convdata($mysqlDate,"mtn");
+}
+function setData($brDate){
+    return $this->convdata($brDate,"ntm");
+}
 
-
+function getDataHora($mysqlDatehora){
+    return $this->convdata($mysqlDate,"mtnh");
+}
+function setDataHora($brDatehora){
+    return $this->convdata($brDate,"ntmh");
+}
 
 
 		function convdata($dataentra,$tipo){
