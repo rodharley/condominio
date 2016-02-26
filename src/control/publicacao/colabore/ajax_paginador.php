@@ -7,12 +7,12 @@ $grupo = $obj::ID_GRUPO_COLABORE;
 $tpl = new Template("view/publicacao/list.html");
 
 $tpl->GRUPO = $obj->get_pasta_grupo($grupo);
-
+$user = $_SESSION['zurc.userPerfilId'] != Perfil::SINDICO ? $_SESSION['zurc.userId'] : "";
 $pesquisa = isset($_REQUEST['pesquisa']) ? $_REQUEST['pesquisa'] : "";
 $pagina = isset($_REQUEST['pagina']) ? $_REQUEST['pagina'] : 1;
-$totalPesquisa = $obj->recuperaTotal($pesquisa,$grupo);
+$totalPesquisa = $obj->recuperaTotal($pesquisa,$grupo,$user);
 $configPaginacao = $obj->paginar($totalPesquisa,$pagina);
-$alist = $obj->listar($configPaginacao['primeiroRegistro'],$configPaginacao['quantidadePorPagina'],$pesquisa,$grupo);
+$alist = $obj->listar($configPaginacao['primeiroRegistro'],$configPaginacao['quantidadePorPagina'],$pesquisa,$grupo,$user);
 if (count($alist) > 0) {
 foreach($alist as $key => $publicacao){
 	$tpl->nome = $publicacao->titulo;

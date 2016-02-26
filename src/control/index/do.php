@@ -3,7 +3,7 @@ if (isset($_REQUEST['action'])) {
     switch ($_REQUEST['action']) {
         case 'login' :
             $ob = new Usuario();
-            if ($ob -> login($_REQUEST['email'], $_REQUEST['senha']))
+            if ($ob -> login($_REQUEST['login-usuario'], $_REQUEST['login-senha']))
               header("Location: home-home");
             else
                 header("Location:" . MAIN_CONTROLE);

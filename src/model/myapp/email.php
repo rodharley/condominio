@@ -14,7 +14,16 @@ function enviarEmailPortal($email,$mensagem){
         $tplEmail -> MENSAGEM = $email."<br/>".$mensagem;        
         return $this -> mail_html($emp->emailcontato, REMETENTE, "Condominium - Email do portal", $tplEmail -> showString());
 }
-	
+
+
+function enviarEmailSolicitacaoCadastro($nome,$unidade,$email){
+    $emp = new Empresa();    
+    $emp->getById(EMPRESA);
+      $tplEmail = new Template("view/padrao/email.html");
+        $tplEmail -> ASSINATURA = str_replace("#url#",URL,Email::ASSINATURA);        
+        $tplEmail -> MENSAGEM = "Dados do usuário solicitante: <br/>Nome: ".$nome."<br/>Unidade: ".$unidade." <br/>Email: ".$email;        
+        return $this -> mail_html($emp->emailcontato, REMETENTE, "Condominium - Solicitação de Cadastramento", $tplEmail -> showString());
+}
 	
 function enviarEmailRedefinirSenha($nome, $email,$idUsuario){
 		 $emp = new Empresa();
@@ -23,7 +32,7 @@ function enviarEmailRedefinirSenha($nome, $email,$idUsuario){
 		$tplEmail = new Template("view/padrao/email.html");
 		$tplEmail -> ASSINATURA = str_replace("#url#",URL,str_replace("#nome#",$_SESSION['zurc.userNome'],str_replace("#logomarca#",$emp->logomarca,Email::ASSINATURA)));
 		$tplEmail -> MENSAGEM = $mensagem;
-		return $this -> mail_html($email, REMETENTE, "Condomínio - Redefinição de Senha", $tplEmail -> showString());
+		return $this -> mail_html($email, REMETENTE, "Condominium - Redefinição de Senha", $tplEmail -> showString());
 }
 
 function enviarEmailNovoUsuario($nome, $email,$idUsuario){
@@ -33,7 +42,7 @@ function enviarEmailNovoUsuario($nome, $email,$idUsuario){
         $tplEmail = new Template("view/padrao/email.html");
         $tplEmail -> ASSINATURA = str_replace("#url#",URL,str_replace("#nome#",$_SESSION['zurc.userNome'],str_replace("#logomarca#",$emp->logomarca,Email::ASSINATURA)));
         $tplEmail -> MENSAGEM = $mensagem;
-        return $this -> mail_html($email, REMETENTE, "Condomínio - Cadastramento no Sistema", $tplEmail -> showString());
+        return $this -> mail_html($email, REMETENTE, "Condominium - Cadastramento no Sistema", $tplEmail -> showString());
 }
 
 function enviarEmailNovaSenha($nome, $email,$senha){
@@ -43,7 +52,7 @@ function enviarEmailNovaSenha($nome, $email,$senha){
         $tplEmail = new Template("view/padrao/email.html");
         $tplEmail -> ASSINATURA = str_replace("#url#",URL,str_replace("#nome#","Condomínio",str_replace("#logomarca#",$emp->logomarca,Email::ASSINATURA)));        
         $tplEmail -> MENSAGEM = $mensagem;        
-        return $this -> mail_html($email, REMETENTE, "Condomínio - Nova Senha", $tplEmail -> showString());
+        return $this -> mail_html($email, REMETENTE, "Condominium - Nova Senha", $tplEmail -> showString());
 }
 
 

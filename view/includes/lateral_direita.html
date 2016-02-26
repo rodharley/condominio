@@ -32,12 +32,23 @@
                     <form action="index-do" method="post" id="frmLogin" name="frmLogin">
                         <input type="hidden" name="action" value="login" />
                         <div class="form-group has-feedback">
-                            <label for="exampleInputEmail1">Email</label>
-                            <input type="email" class="form-control required" placeholder="Email" name="email" id="email">
+                            <label for="apartamento">Apartamento</label>
+                            <select class="selectpicker form-control required" data-live-search="true" id="login-apartamento" name="login-apartamento">
+                             <option value=""> </option>
+                             <!-- BEGIN BLOCK_UNIDADE -->
+                             <option value="{ID_UNIDADE}">{LABEL_UNIDADE}</option>
+                             <!-- END BLOCK_UNIDADE -->
+                           </select>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Senha</label>
-                            <input type="password" class="form-control required" id="exampleInputPassword1" placeholder="Password" name="senha">
+                        <div class="form-group has-feedback">
+                            <label for="usuario">Usuário</label>
+                            <select class="form-control required" name="login-usuario" id="login-usuario">
+                                <option value="">Selecione</option>
+                            </select>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label for="senha">Senha</label>
+                            <input type="password" class="form-control required" id="login-senha" placeholder="Password" name="login-senha">
                         </div>
                         <button type="submit" class="btn btn-default">
                             Entrar
@@ -46,7 +57,7 @@
                             <a href="index-recuperarSenha">Esqueci Minha Senha</a>
                         </div>
                         <div class="form-group">
-                            <a href="#">Primeiro Acesso?</a>
+                            <a href="index-registro">Primeiro Acesso?</a>
                         </div>
 
                     </form>
@@ -63,4 +74,21 @@
                     </ul>
                 </div>
             </div>
-s
+            <script>
+    $(document).ready(function() {
+        $("#login-apartamento").change(function(){
+            $.ajax({
+                url : "comum-ajax-usuariosPorUnidade",
+                type : "POST",
+                data : {idUnidade : $(this).val()},
+
+                beforeSend: function( ) {
+                  
+                },
+            }).done(function(msg) {
+               $("#login-usuario").html(msg);
+            });
+        });
+        $("#frmLogin").validate();
+    }); 
+</script>

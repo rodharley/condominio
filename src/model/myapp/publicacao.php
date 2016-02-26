@@ -38,11 +38,46 @@ class Publicacao extends Dao{
                 break;
         }
     }
+    public function get_titulo_grupo($id){
+        switch ($id) {
+            case $this::ID_GRUPO_ANOTE:
+                return 'Anote';
+                break;
+            case $this::ID_GRUPO_PARTICIPE:
+                return 'Participe';
+                break;
+            case $this::ID_GRUPO_COLABORE:
+                return 'Colabore';
+                break;
+            
+            default:
+                
+                break;
+        }
+    }
+    public function get_icone_grupo($id){
+        switch ($id) {
+            case $this::ID_GRUPO_ANOTE:
+                return 'icone-anote';
+                break;
+            case $this::ID_GRUPO_PARTICIPE:
+                return 'icone-participe';
+                break;
+            case $this::ID_GRUPO_COLABORE:
+                return 'icone-colabore';
+                break;
+            
+            default:
+                
+                break;
+        }
+    }
     
-    
-    
-	 function recuperaTotal($busca = "",$grupo="1") {
+	 function recuperaTotal($busca = "",$grupo="1",$user = "") {
                 $sql = "select count(id) as total from ".$this::TABELA." WHERE idEmpresa = ".EMPRESA." and grupo = ".$grupo;
+        if($user != "")
+            $sql .= " and idUsuario = $user";
+        
         if ($busca != "")
             $sql .= " and (titulo like '$busca%')";
         
@@ -50,10 +85,11 @@ class Publicacao extends Dao{
         return $this -> DAO_Result($rs, "total", 0);
     }
     
-    function listar($primeiro = 0, $quantidade = 9999, $busca = "",$grupo="1") {
+    function listar($primeiro = 0, $quantidade = 9999, $busca = "",$grupo="1",$user = "") {
 
                 $sql = "select u.* from ".$this::TABELA." u where idEmpresa = ".EMPRESA." and grupo = ".$grupo;
-        
+        if($user != "")
+            $sql .= " and idUsuario = $user";
         if ($busca != "")
             $sql .= " and (titulo like '$busca%')";
         $sql .= "  order by data desc limit $primeiro, $quantidade";

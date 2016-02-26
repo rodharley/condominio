@@ -1,0 +1,39 @@
+<script>
+	$(document).ready(function() {
+		
+		$(".paginar").click(function(){
+			$("#pagina").val($(this).attr("value"));
+			pesquisar();
+		});	
+				
+	});
+
+</script>
+
+		<!-- BEGIN BLOCK_ITEM -->
+                            <div class="lista-item">
+                                <header class="">
+                                    <h2 class=""><a href="publicacao-detalhe?id={ID_PUB}" title="leia mais..">{TITULO_ITEM}</a></h2>
+                                </header>
+                                <div class="">
+                                    <div class="pull-left">
+                                                    <img alt="User Image" class="img-circle" src="img/users/{FOTO_ITEM}">
+                                                </div>
+                                    {DATA_ITEM} | <a href="publicacao-detalhe?id={ID_PUB}" title="leia mais..">Ler mais</a>
+                                    <br/>{USER_ITEM}
+                                </div>
+                                 
+                            </div>
+                            <!-- END BLOCK_ITEM --> 
+	<!-- BEGIN BLOCK_PAGINACAO -->
+	<div class="text-center">
+	<p>
+	
+                                        <ul class="pagination pagination-sm no-margin pull-ce">
+                                            <li><a href="#" value="{PAGINA_ANTERIOR}" class="{paginar_class}">&laquo;</a></li>
+                                            <li><a href="#">{PAGINA}/{TOTAL_PAGINAS}</a></li>
+                                            <li><a href="#" value="{PROXIMA_PAGINA}" class="{paginar_class}">&raquo;</a></li>
+                                        </ul>
+    	</p>
+    	</div>
+    	<!-- END BLOCK_PAGINACAO -->

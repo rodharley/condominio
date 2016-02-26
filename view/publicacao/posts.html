@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row cd-content">
+                <form name="frmPesquisa" id="frmPesquisa" action="#" method="post" class="pull-right form form-inline">
+                    <input type="hidden" name="pagina" id="pagina" value="1"/>
+                </form>
+
+                <div class="panel panel-padrao">
+
+                    <div class="panel-heading">
+                        <i class="icone {LABEL_ICONE}"> </i>{LABEL_TITULO}
+                    </div>
+                    <div class="panel-body" id="boxLista">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            {INC_LATERAL_DIREITA}
+        </div>
+    </div>
+</div>
+<script>
+	function pesquisar() {
+
+		$.ajax({
+			url : "publicacao-{GRUPO}-ajax_portal_paginador",
+			type : "POST",
+			data : $("#frmPesquisa").serialize(),
+		}).done(function(msg) {
+			$("#boxLista").html(msg);
+		});
+
+	}
+
+
+	$(document).ready(function() {
+		pesquisar();
+	});
+
+</script>
+

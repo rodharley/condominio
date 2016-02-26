@@ -4,7 +4,7 @@ class Lib {
 
 
 var $HASH_URL = 'chavedeteste';
-var $PAGINACAO = 10;
+var $PAGINACAO = 5;
 
 
 

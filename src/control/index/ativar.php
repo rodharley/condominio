@@ -1,8 +1,11 @@
 <?php
 $tpl = new Template("view/templates/blank_page.html");
 $tpl->addFile("CONTENT", "view/index/ativar.html");
+$tpl->addFile("INC_LATERAL_DIREITA", "view/includes/lateral_direita.html");
 include("includes/montaEmpresa.php");
+include("includes/formLogin.php");
 include("includes/mensagem.php");
+
 $user = new Usuario();
 if(isset($_REQUEST['id'])){
 $idUser = $user->md5_decrypt($_REQUEST['id']);

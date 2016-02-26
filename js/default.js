@@ -27,7 +27,8 @@ $(document).ready(function() {
 				$(element).closest('.form-group').find('span.glyphicon').remove();
 				$(element).closest('.form-group').append('<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>');
 			}
-		}
+		},
+		 ignore: [],
 	});
 
 	$('input[type="checkbox"].flat-blue, input[type="radio"].flat-blue').iCheck({

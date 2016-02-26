@@ -13,7 +13,7 @@
 <mensagem id="11" type="danger">Usuário já está ativo no sistema</mensagem>
 <mensagem id="12" type="success">Usuário habilitado no sistema com sucesso!</mensagem>
 <mensagem id="13" type="success">Senha alterada com sucesso!</mensagem>
-<mensagem id="14" type="success">Usuário Cadastrado com sucesso.Verifique seu email para ativar sua conta.</mensagem>
+<mensagem id="14" type="success">Sua solicitação foi enviada com sucesso, aguarde o email de confirmação do cadastramento.</mensagem>
 <mensagem id="15" type="success">Perfil alterado com sucesso.</mensagem>
 <mensagem id="16" type="success">Perfil incluído com sucesso.</mensagem>
 <mensagem id="17" type="warning">Não foi possível excluir o perfil pois existem usuários cadastrados nele. </mensagem>
