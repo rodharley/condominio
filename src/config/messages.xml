@@ -26,6 +26,11 @@
 <mensagem id="24" type="success">Publicação alterada com sucesso.</mensagem>
 <mensagem id="25" type="success">Publicação excluída com sucesso.</mensagem>
 <mensagem id="26" type="warning">Não foi possível excluir a publicação. </mensagem>
+<mensagem id="27" type="success">Documento incluído com sucesso.</mensagem>
+<mensagem id="28" type="success">Documento alterado com sucesso.</mensagem>
+<mensagem id="29" type="success">Documento excluído com sucesso.</mensagem>
+<mensagem id="30" type="warning">Não foi possível excluir o documento. </mensagem>
+
 
 <mensagem id="31" type="warning">Estamos com problemas para processar essa operação no momento, por favor tente novamente mais tarde.</mensagem>
 <mensagem id="32" type="danger">Não é possível excluir esse registro pois o mesmo contém dados no sistema que não podem ser excluídos.</mensagem>
