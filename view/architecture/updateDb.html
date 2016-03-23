@@ -1,35 +1,101 @@
-<div class="box box-primary">
-    <div class="box-body">
-<form class="form" action="updateDb.php" method="post">
-    
-    <table class="table table-bordered">
-        <tr>
-            <th class="col-md-1"><input type="checkbox" id="checkall" name="checkall" value="1" class="select" /> Selecione</th>
-            <th>Tabela</th>
-        </tr>
-        <!-- BEGIN block_tabela -->
-        <tr>
-            <td><input type="checkbox" name="tabela[]" value="{nome_tabela}" class="select" /></td>
-            <td>{nome_tabela}</td>
-        </tr>
-         <!-- END block_tabela -->
-    </table>
-    <input type="submit" class="btn btn-success" value="Executar"/>
-</form>
+<div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist" id="tabs">
+        <li role="presentation" class="active">
+            <a href="#estrutura" aria-controls="estrutura" role="tab" data-toggle="tab">Estrutura</a>
+        </li>
+        <li role="presentation">
+            <a href="#script" aria-controls="script" role="tab" data-toggle="tab">Scripts</a>
+        </li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="estrutura">
+            <div class="box box-primary">
+                <div class="box-header">
+                    Estrutura
+                </div>
+                    <form class="form" action="updateDb.php" method="post" name="form1">
+                <div class="box-body">
+
+
+                        <table class="table table-bordered">
+                            <tr>
+                                <th class="col-md-1">
+                                <input type="checkbox" id="checkall" name="checkall" value="1" class="select" />
+                                Selecione</th>
+                                <th>Tabela</th>
+                            </tr>
+                            <!-- BEGIN block_tabela -->
+                            <tr>
+                                <td>
+                                <input type="checkbox" name="tabela[]" value="{nome_tabela}" class="select" />
+                                </td>
+                                <td>{nome_tabela}</td>
+                            </tr>
+                            <!-- END block_tabela -->
+                        </table>
+
+                   
+                </div>
+                <div class="box-footer">
+                  <input type="text" name="password" class="form-control"/>   <input type="submit" class="btn btn-success" value="Executar"/>
+                </div>
+                 </form>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="script">
+            <div class="box box-primary">
+                <div class="box-header">
+                    Executar Script
+                </div>
+                 <form class="form" action="updateDb.php" method="post" name="form2" enctype="multipart/form-data">
+                <div class="box-body">
+                   
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="file" name="arquivo" id="arquivo" />
+                            </div>
+                        </div>
+
+
+                </div>
+                <div class="box-footer">
+                  <input type="text" name="password" class="form-control"/>     <input type="submit" class="btn btn-success" value="Executar"/>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </div>
-</div>
+
 <script>
-   $(document).ready(function(){
-       $("#checkall").click(function(){
-           if($(this).prop("checked")){
-                $("input:checkbox").each(function(){
-                    $(this).prop("checked",true);
-                }); 
-           }else{
-               $("input:checkbox").each(function(){
-                    $(this).prop("checked",false);
-                });
-           }
-       });
-   }); 
+	$(document).ready(function() {
+	    
+	   
+	   $("#arquivo").fileinput({
+                 
+            overwriteInitial: true,
+            maxFileSize: 2000,
+            maxFilesNum: 1,
+            allowedFileExtensions: ["sql"],
+            previewClass: "bg-warning",            
+            showUpload: false,
+            showCaption: false
+        });
+	    
+		$("#checkall").click(function() {
+			if ($(this).prop("checked")) {
+				$("input:checkbox").each(function() {
+					$(this).prop("checked", true);
+				});
+			} else {
+				$("input:checkbox").each(function() {
+					$(this).prop("checked", false);
+				});
+			}
+		});
+	}); 
 </script>

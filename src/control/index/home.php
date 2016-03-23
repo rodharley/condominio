@@ -13,8 +13,7 @@ foreach ($rs as $key => $anote) {
      $tpl->ID_PUB = $objPub->md5_encrypt($anote->id);   
     $tpl->DATA_ITEM = $objPub->getData($anote->data);
     $tpl->TITULO_ITEM = $anote->titulo;
-    $tpl->USER_ITEM = $anote->usuario->nome;
-    $tpl->FOTO_ITEM = $anote->usuario->foto;
+    
 	$tpl->block("BLOCK_ITEM_ANOTE");
 }
 
@@ -23,8 +22,7 @@ foreach ($rs as $key => $anote) {
     $tpl->ID_PUB = $objPub->md5_encrypt($anote->id);
     $tpl->DATA_ITEM = $objPub->getData($anote->data);
     $tpl->TITULO_ITEM = $anote->titulo;
-    $tpl->USER_ITEM = $anote->usuario->nome;
-    $tpl->FOTO_ITEM = $anote->usuario->foto;
+    
     $tpl->block("BLOCK_ITEM_PARTICIPE");
 }
 
@@ -33,8 +31,7 @@ foreach ($rs as $key => $anote) {
     $tpl->ID_PUB = $objPub->md5_encrypt($anote->id);
     $tpl->DATA_ITEM = $objPub->getData($anote->data);
     $tpl->TITULO_ITEM = $anote->titulo;
-    $tpl->USER_ITEM = $anote->usuario->nome;
-    $tpl->FOTO_ITEM = $anote->usuario->foto;
+    
     $tpl->block("BLOCK_ITEM_COLABORE");
 }
 

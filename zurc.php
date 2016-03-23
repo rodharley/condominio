@@ -104,5 +104,22 @@ class Zurc {
 			$dao->updateDb();
   		}
   	}
+  	
+    public function executaScript(){
+        if(BD){
+            $dao = new Dao();
+            $file = file_get_contents($_FILES['arquivo']['tmp_name']);
+            $arraySql = explode(";", $file);
+            foreach ($arraySql as $key => $sql) {
+                if(strlen(trim($sql)) > 0){
+                $dao->DAO_ExecutarQuery($sql);
+                }    
+            }
+            
+            
+            
+            
+        }
+    }
 
 }

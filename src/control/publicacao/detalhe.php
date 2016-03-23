@@ -12,9 +12,6 @@ $tpl->GRUPO = $pub->get_pasta_grupo($pub->grupo);
 $tpl->TITULO = $pub->titulo;
 $tpl->CONTEUDO = $pub->conteudo;
 $tpl->DATA = $pub->getData($pub->data);
-$tpl->USER_ITEM = $pub->usuario->nome;
-    $tpl->FOTO_ITEM = $pub->usuario->foto;
- 
 $tpl->LABEL_TITULO = $pub->get_titulo_grupo($pub->grupo);
 $tpl->LABEL_ICONE = $pub->get_icone_grupo($pub->grupo);
 $tpl->show();

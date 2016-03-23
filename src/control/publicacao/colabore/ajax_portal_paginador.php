@@ -18,9 +18,7 @@ foreach($alist as $key => $publicacao){
 	 $tpl->ID_PUB = $obj->md5_encrypt($publicacao->id);   
     $tpl->DATA_ITEM = $obj->getData($publicacao->data);
     $tpl->TITULO_ITEM = $publicacao->titulo;
-    $tpl->USER_ITEM = $publicacao->usuario->nome;
-    $tpl->FOTO_ITEM = $publicacao->usuario->foto;
-	$tpl->block("BLOCK_ITEM");
+    $tpl->block("BLOCK_ITEM");
 	
 }
 }
